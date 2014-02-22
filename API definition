@@ -1,0 +1,17 @@
+API definition
+
+1. Register
+POST :/register?address=<ip_address>
+				&port=<port>
+				&name=<device_name>
+				&bitrate=<bit rate>
+	return device_id/status 400
+2. Unregister
+POST :/unregister?device_id=<device_id>
+	return status ok / status 400
+3. Reregister
+POST :/reregister?device_id=<device_id>
+	optional    [&ip=<ip_address>]
+				[&port=<port>]
+				[&device_name=<device_name>]
+				[&bitrate=<birate>]

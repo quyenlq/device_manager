@@ -1,0 +1,16 @@
+<%provide(:title, "Channel #{@device.name} at #{@device.address}:#{@device.port}") %>
+
+<h1 class="page-header">Watching from device <%= @device.name %></h1>
+<div class="video-container">
+	<embed type="application/x-vlc-plugin"
+	name="video"
+	autoplay="no" loop="yes" width="400" height="300"
+	target="rtsp://<%= "#{@device.address}:#{@device.port}" %>" />
+	<div class="video-controller"> 
+	<a class="btn btn-primary" href="javascript:;" onclick='document.video1.play()'>Play</a>
+
+		<a class="btn btn-primary" href="javascript:;" onclick='document.video1.pause()'>Pause</a>
+		<a class="btn btn-primary" href="javascript:;" onclick='document.video1.stop()'>Stop</a>
+		<a class="btn btn-primary" href="javascript:;" onclick='document.video1.fullscreen()'>Fullscreen</a>
+	</div>
+</div>

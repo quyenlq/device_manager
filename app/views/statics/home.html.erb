@@ -1,0 +1,9 @@
+<% provide(:title, "Homepage") %>
+
+<h1 class="page-header">List of connected devices <small>(<%= @devices.count %>)</small></h1>
+<div class="container">
+	<div class="row destacados">
+		<%= render @devices %>
+	</div>
+</div>
+

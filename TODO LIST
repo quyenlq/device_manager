@@ -1,0 +1,20 @@
+TODO LIST
+Device
+	- block validate when register device
+	- validate device's fields
+	- Re-register action
+	- on-off signal (image at admin dashboard)
+	- device image collection (thegioididong)
+	- checkbox to multiple action in dashboard
+	
+User
+	- admin appointment
+
+UI/UX: need to improve, responsive design
+	- Change type of view devices at homepage (thumnail, lists,...)
+	- Sidebar??
+
+HTML5 rtsp protocol, for other devices an browse the content
+
+
+

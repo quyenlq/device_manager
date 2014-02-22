@@ -1,0 +1,20 @@
+<header>
+  <nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="<%=root_path %>" id="logo"><i class="glyphicon glyphicon-hd-video"></i> bkSTREAMING</a>
+      
+        <ul class="nav pull-right navbar-nav">
+          <li class="divider-vertical"></li>          
+          <% if signed_in? %>
+          <li><%= link_to "Device Manager", devices_path %></li>        
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <% else %>
+          <li><%= link_to "Sign in", signin_path %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Sign up", signup_path %></a></li>
+          <% end %>
+        </ul>
+        </div>
+      </div>
+    </header>

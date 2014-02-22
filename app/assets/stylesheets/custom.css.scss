@@ -1,0 +1,136 @@
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/*OVERRIDE BOOTSTRAP */
+.hero-unit{
+	text-align: center;
+}
+.new_link{
+	margin: 10px;
+}
+.big-title{
+    text-align: center;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+.clearfix {
+  float:none !important;
+}
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+ }
+#custom-field{
+  margin-top: 10px;
+  font-weight: bold;
+  color: #08c;
+  font-size: 110%;
+  input{
+    padding: 5px;
+  }
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto !important;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+/* BODY */
+
+body{
+  margin-top: 80px;
+  background-color: #F5FCFF;
+}
+
+nav{
+  background-color: white;
+  border-bottom: 2px solid #ccc !important;
+}
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  font-family: 'Audiowide', cursive;
+  color: #08c;
+  // text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #999;
+  text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+
+.device-column{
+  margin-top: 50px;
+}
+.destacados{
+  padding: 10px 0;
+  text-align: center;
+}
+.destacados > div > div{
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+.destacados > div:hover > div{
+  // margin-top: -10px;
+  border: 1px solid rgb(200, 200, 200);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+  background: rgba(200, 200, 200, 0.1);
+  transition: 0.5s;
+}
+
+.video-container{
+  text-align: center;
+}

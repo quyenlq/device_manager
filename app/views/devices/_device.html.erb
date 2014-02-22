@@ -1,0 +1,11 @@
+<div class="col-md-4 device-column">
+	<div>
+		<img src="http://lorempixel.com/200/200/abstract/1/" alt="Texto Alternativo" class="img-circle img-thumbnail">
+		<h2><%= device.name %></h2>
+		<p><%= device.address %></p>
+		<p>Status: <%= device.get_status %></p>
+		<p>Bit rate: <%= device.get_bitrate %></p>
+			<a href="<%=watch_device_path(device) %>" class="btn btn-danger" title="Enlace">WATCH NOW »</a>
+	</div>
+</div>
+	
