@@ -8,7 +8,9 @@ Mailsauron::Application.routes.draw do
       get '/block', to: 'devices#block', as: :block
     end
   end
-  
+
+  resources :block_lists, only: [:index, :destroy]
+
   post '/register/', to: 'devices#register', as: :register
   post '/unregister/', to: 'devices#unregister', as: :unregister
   post '/reregister/', to: 'devices#reregister', as: :reregister

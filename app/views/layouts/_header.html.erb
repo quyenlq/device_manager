@@ -7,6 +7,7 @@
           <li class="divider-vertical"></li>          
           <% if signed_in? %>
           <li><%= link_to "Device Manager", devices_path %></li>        
+          <li><%= link_to "Block list", block_lists_path %></li>        
           <li class="divider-vertical"></li>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
           <% else %>

@@ -20,12 +20,14 @@
 		<td><%=device.address%></td>
 		<td><%=device.get_bitrate%></td>
 		<td><div class="btn btn-group">
-			<%= link_to "Dtl", device_path(device), class: "btn btn-sm btn-default" %>
-			<%= link_to "Rm", device_path(device), :method => "DELETE", :data => {:confirm => "U sure?"}, class: "btn btn-sm btn-default" %>
-			<%= link_to "Apv", approve_device_path(device), class: "btn btn-sm btn-default" %>
-			<%= link_to "Rej", reject_device_path(device), class: "btn btn-sm btn-default" %>
-			<%= link_to "Wat", watch_device_path(device), class: "btn btn-sm btn-default" %>
-			<%= link_to "Blk", block_device_path(device), class: "btn btn-sm btn-default" %>
+			<%= link_to "", device_path(device), class: "btn btn-primary glyphicon glyphicon-cog", title: "Details" %>
+			<%= link_to "", device_path(device), :method => "DELETE", :data => {:confirm => "U sure?"}, class: "btn btn-primary glyphicon glyphicon-trash " , title: "Remove"%>			
+			<%= link_to "", watch_device_path(device), class: "btn btn-primary glyphicon glyphicon-expand " , title: " Watch"%>
+			<%= link_to "", block_device_path(device), class: "btn btn-primary glyphicon glyphicon-ban-circle" , title: "Block"%>
+			<% if device.status == 0 %>
+			<%= link_to "", approve_device_path(device), class: "btn btn-primary glyphicon glyphicon-ok" , title: "Approve" %>
+			<%= link_to "", reject_device_path(device), class: "btn btn-primary glyphicon glyphicon-remove" , title: "Reject" %>
+			<% end %>
 		</div>
 		</td>
 	</tr>			

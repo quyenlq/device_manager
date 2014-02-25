@@ -15,7 +15,7 @@ class DevicesController < ApplicationController
 			if @device.save	
 				render nothing: true, status: :ok
 			else
-				render nothing: true, status: 400
+				render text: @device.errors.to_json, status: 400
 			end
 		else
 			render nothing: true, status: 400
@@ -36,7 +36,7 @@ class DevicesController < ApplicationController
 			# unregister device
 			device.delete
 			render nothing: true, status: :ok
-		else render nothing: true, status: 400
+		else render text: "Device not found", status: 400
 		end
 	end
 
@@ -73,7 +73,7 @@ class DevicesController < ApplicationController
 			flash[:success] = "Device information updated"
 			redirect_to @device
 		else
-			flash[:error] = "Update failed, please check errors below"
+			flash[:danger] = "Update failed, please check errors below"
 			render 'show'
 		end
 	end
@@ -87,7 +87,7 @@ class DevicesController < ApplicationController
 				flash[:success] = "Device blocked"
 				redirect_to devices_path
 			else
-				flash[:error] = block.errors
+				flash[:danger] = block.errors
 				redirect_to devices_path
 			end
 		end
@@ -96,7 +96,7 @@ class DevicesController < ApplicationController
 	def destroy
 		@device = Device.find(params[:id])
 		@device.delete
-		flash[:sucess] = "Device deleted"
+		flash[:danger] = "Device deleted"
 		redirect_to devices_path
 	end
 

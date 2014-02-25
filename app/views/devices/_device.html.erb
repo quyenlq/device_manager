@@ -1,11 +1,14 @@
-<div class="col-md-4 device-column">
+<li class="item">
 	<div>
-		<img src="http://lorempixel.com/200/200/abstract/1/" alt="Texto Alternativo" class="img-circle img-thumbnail">
-		<h2><%= device.name %></h2>
-		<p><%= device.address %></p>
-		<p>Status: <%= device.get_status %></p>
-		<p>Bit rate: <%= device.get_bitrate %></p>
-			<a href="<%=watch_device_path(device) %>" class="btn btn-danger" title="Enlace">WATCH NOW »</a>
+		<h4 class="cbp-vm-title"><%= device.name %></h4>
+		<div class="divider"></div>
+		<div style="background-image:url('http://cdn.tgdd.vn/Products/Images/42/61196/SliderAlbum/699/samsung-galaxy-note-3-neo-black-03.jpg')" alt="Texto Alternativo" class="device-image cbp-vm-image"></div>
+
+		
+		<p class="cbp-vm-price"><%= device.address %></p>
+		<p class="cbp-vm-price">Status: <%= device.get_status %></p>
+<!-- 		<p class="cbp-vm-icon cbp-vm-details">Bit rate: <%= device.get_bitrate %></p> -->
+			<a href="<%=watch_device_path(device) %>" class="btn btn-danger cbp-vm-add" title="Watch">WATCH NOW »</a>
 	</div>
-</div>
-	
+
+</li>

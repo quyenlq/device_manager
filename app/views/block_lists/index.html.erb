@@ -1,0 +1,42 @@
+<h1 class="page-header">BlockLists#index</h1>
+<table class="table table-hover tablesorter" id="myTable">
+<thead>
+	<tr>
+		<th class="header"><div>ID</div></th>
+		<th class="header"><div>Device ID</div></th>
+		<th class="header"><div>Blocked at</div></th>
+		<th class="header"><div>Action</div></th>
+	</tr>
+	</thead>
+	<tbody>
+	<% @lists.each do |list| %>
+	<tr>
+		<td><%=list.id%></td>
+		<td><%=list.device_id%></td>
+		<td><%=time_ago_in_words(list.created_at) %> ago</td>
+		<td><div class="btn btn-group">
+			<%= link_to "", block_list_path(list), :method => "DELETE", :data => {:confirm => "U sure?"}, class: "btn btn-primary glyphicon glyphicon-remove", title: "Remove from block list" %>
+		</div>
+		</td>
+	</tr>			
+	<% end %>
+	</tbody>
+</table>
+
+<script>
+	$(document).ready(function(){
+		$(function(){
+			$("#myTable").tablesorter({
+				theme : 'blue',
+ 
+			    sortList : [[1,0],[2,0],[3,0]],
+			 
+			    // header layout template; {icon} needed for some themes
+			    headerTemplate : '{content}{icon}',
+			 
+			    // initialize column styling of the table
+			    widgets : ["columns"]
+			});
+		});
+	});
+</script>

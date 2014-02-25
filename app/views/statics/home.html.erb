@@ -1,9 +1,23 @@
 <% provide(:title, "Homepage") %>
 
 <h1 class="page-header">List of connected devices <small>(<%= @devices.count %>)</small></h1>
-<div class="container">
-	<div class="row destacados">
-		<%= render @devices %>
+<div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
+	<div class="cbp-vm-options">
+		<a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid">Grid View</a>
+		<a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list">List View</a>
 	</div>
+	<ul>
+		<%= render @devices %>
+	</ul>
 </div>
+<!-- 	<div class="row destacados">
+
+</div> -->
+
+<!-- </div> -->
+<%= content_for :extended_js do %>
+<%= javascript_include_tag "modernizr.custom.js" %>
+<%= javascript_include_tag "classie" %>
+<%= javascript_include_tag "cbpViewModeSwitch" %>
+<% end %>
 

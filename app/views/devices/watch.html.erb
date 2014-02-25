@@ -4,13 +4,13 @@
 <div class="video-container">
 	<embed type="application/x-vlc-plugin"
 	name="video"
-	autoplay="no" loop="yes" width="400" height="300"
+	autoplay="no" loop="yes" width="720" height="480"
 	target="rtsp://<%= "#{@device.address}:#{@device.port}" %>" />
 	<div class="video-controller"> 
-	<a class="btn btn-primary" href="javascript:;" onclick='document.video1.play()'>Play</a>
+	<a class="btn btn-primary btn-lg glyphicon glyphicon-play" href="javascript:;" onclick='document.video1.play()'></a>
 
-		<a class="btn btn-primary" href="javascript:;" onclick='document.video1.pause()'>Pause</a>
-		<a class="btn btn-primary" href="javascript:;" onclick='document.video1.stop()'>Stop</a>
-		<a class="btn btn-primary" href="javascript:;" onclick='document.video1.fullscreen()'>Fullscreen</a>
+		<a class="btn btn-primary btn-lg glyphicon glyphicon-pause" href="javascript:;" onclick='document.video1.pause()' title="play/pause"></a>
+		<a class="btn btn-primary btn-lg glyphicon glyphicon-stop" href="javascript:;" onclick='document.video1.stop()' title="stop"></a>
+		<a class="btn btn-primary btn-lg glyphicon glyphicon-fullscreen" href="javascript:;" onclick='document.video1.fullscreen()' title="Full screen"></a>
 	</div>
 </div>
