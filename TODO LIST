@@ -2,11 +2,11 @@ TODO LIST
 Device
 	- block validate when register device // DONE
 	- validate device's fields // DONE
-	- Re-register action
+	- Re-register action // DONE
 	- on-off signal (image at admin dashboard)
 	- device image collection (thegioididong) // PENDING
-	- checkbox to multiple action in dashboard
-	- disbale buttons in admin control panel
+	- checkbox to multiple action in dashboard // DONE
+	- disbale buttons in admin control panel // DONE
 	- paginate
 User
 	- admin appointment

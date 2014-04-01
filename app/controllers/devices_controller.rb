@@ -11,7 +11,7 @@ class DevicesController < ApplicationController
 
 	def register
 		if valid_params(params)
-			@device = Device.new(get_device_params(params))
+			@device = Device.new(get_device_params(params, true))
 			if @device.save	
 				render nothing: true, status: :ok
 			else
@@ -24,9 +24,11 @@ class DevicesController < ApplicationController
 
 	def reregister
 		device = Device.find_by_device_id(params[:device_id])
-		if device
-		# TODO: update device from params
+		if device && valid_optional_params(params)
+			device.update_attributes(get_device_params(params, false))
+			render nothing: true, status: 200
 		else
+			render nothing: true, status: 400
 		end
 	end
 
@@ -106,8 +108,9 @@ class DevicesController < ApplicationController
 		params.require(:device).permit(:name, :address, :device_id, :port, :bitrate)
 	end
 
-	def get_device_params(raw)
-		return raw.permit(:name, :address, :device_id, :port, :bitrate)
+	def get_device_params(raw, register_flag)
+		return raw.permit(:name, :address, :device_id, :port, :bitrate) if register_flag
+		return raw.permit(:name, :address, :port, :bitrate)
 	end
 
 	def signed_in_user
@@ -122,4 +125,8 @@ class DevicesController < ApplicationController
 		return  params.include?(:name) && params.include?(:address) && params.include?(:port) && params.include?(:bitrate) && params.include?(:device_id)
 	end
 
+	def valid_optional_params(params)
+		return  params.include?(:name) || params.include?(:address) || params.include?(:port) || params.include?(:bitrate) || params.include?(:device_id)
+	end
+	
 end

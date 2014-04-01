@@ -10,7 +10,7 @@ class Device < ActiveRecord::Base
 	format:     { with: VALID_IPV4_REGEX }
 	validates :device_id, presence: true, uniqueness: true
 	validates :bitrate, presence: true
-	validate :blocked_xdevice
+	validate :blocked_device
 
 	def get_status
 		case status

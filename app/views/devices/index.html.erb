@@ -52,3 +52,7 @@
 		});
 	});
 </script>
+
+<%= content_for :extended_js do %>
+	<%= javascript_include_tag "tablesorter", :cache => true %>
+<% end %>
