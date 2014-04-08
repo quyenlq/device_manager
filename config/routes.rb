@@ -1,4 +1,16 @@
 Mailsauron::Application.routes.draw do
+  namespace :api do 
+    namespace :v1 do
+      post '/register/', to: 'devices#register', as: :register
+      post '/unregister/', to: 'devices#unregister', as: :unregister
+      post '/reregister/', to: 'devices#reregister', as: :reregister
+      post '/login/', to: 'sessions#create'
+      post '/logout/', to: 'sessions#destroy'
+      post '/users/update', to: 'users#update', as: :update_user
+      post '/users/create', to: 'users#create', as: :create_user
+    end
+  end
+
   resources :users
   resources :devices, only: [:index, :update, :show, :destroy, :edit] do
     member do
@@ -10,10 +22,6 @@ Mailsauron::Application.routes.draw do
   end
 
   resources :block_lists, only: [:index, :destroy]
-
-  post '/register/', to: 'devices#register', as: :register
-  post '/unregister/', to: 'devices#unregister', as: :unregister
-  post '/reregister/', to: 'devices#reregister', as: :reregister
 
   resources :sessions, only: [:new, :create, :destroy]
 

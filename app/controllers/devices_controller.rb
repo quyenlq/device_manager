@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-	before_filter :signed_in_user, except: [:watch, :register, :reregister]
+	before_filter :signed_in_user
 	before_filter :admin_user, only: [:show, :index, :edit, :update, :block, :destroy, :approve, :reject]
 
 
@@ -9,39 +9,7 @@ class DevicesController < ApplicationController
 		@device = Device.find(params[:id])
 	end
 
-	def register
-		if valid_params(params)
-			@device = Device.new(get_device_params(params, true))
-			if @device.save	
-				render nothing: true, status: :ok
-			else
-				render text: @device.errors.to_json, status: 400
-			end
-		else
-			render nothing: true, status: 400
-		end 
-	end
-
-	def reregister
-		device = Device.find_by_device_id(params[:device_id])
-		if device && valid_optional_params(params)
-			device.update_attributes(get_device_params(params, false))
-			render nothing: true, status: 200
-		else
-			render nothing: true, status: 400
-		end
-	end
-
-	def unregister
-		device = Device.find_by_device_id(params[:device_id])
-		if device
-			# unregister device
-			device.delete
-			render nothing: true, status: :ok
-		else render text: "Device not found", status: 400
-		end
-	end
-
+	
 	# Require admin permission
 	def show
 		@device = Device.find(params[:id])

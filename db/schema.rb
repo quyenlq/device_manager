@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222092730) do
+ActiveRecord::Schema.define(version: 20140402085958) do
 
   create_table "block_lists", force: true do |t|
     t.string   "device_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140222092730) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "email"
+    t.string   "username"
     t.string   "password_digest"
     t.string   "remember_token"
     t.datetime "created_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140222092730) do
     t.boolean  "admin",           default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

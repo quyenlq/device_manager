@@ -1,21 +1,27 @@
 TODO LIST
 Device
-	- block validate when register device // DONE
-	- validate device's fields // DONE
-	- Re-register action // DONE
+	+ block validate when register device // DONE
+	+ validate device's fields // DONE
+	+ Re-register action // DONE
 	- on-off signal (image at admin dashboard)
 	- device image collection (thegioididong) // PENDING
-	- checkbox to multiple action in dashboard // DONE
-	- disbale buttons in admin control panel // DONE
+	+ checkbox to multiple action in dashboard // DONE
+	+ disbale buttons in admin control panel // DONE
 	- paginate
 User
-	- admin appointment
+	- admin appointment //??
 	- redirect_back
 
 UI/UX: need to improve, responsive design	
-	- Change type of view devices at homepage (thumnail, lists,...) // DONE
+	+ Change type of view devices at homepage (thumbnail, lists,...) // DONE
 	- Sidebar??
 	- Amazing homepage
 
-HTML5 rtsp protocol, for other devices an browse the content
-
+BUILD THE API
+	+ change identity attibute from email to username (user) //done
+	+ login	// DONE
+	+ logout //DONE
+	- update menu left when logged in // slot problem
+	- bitrate problem
+	- create user api - edit user // checkbox to change password
+	+ refactor code - api controller and non-api controller // DONE?
