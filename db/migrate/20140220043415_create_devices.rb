@@ -1,12 +1,12 @@
 class CreateDevices < ActiveRecord::Migration
   def change
     create_table :devices do |t|
-      t.string :name
+      t.string :device_id
+      t.string :device_name
+      t.string :channel_name
       t.string :address
-      t.string :desc
       t.integer :status
-      t.string :model
-
+      t.integer :bitrate
       t.timestamps
     end
   end

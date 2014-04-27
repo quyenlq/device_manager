@@ -15,8 +15,6 @@ Mailsauron::Application.routes.draw do
   resources :devices, only: [:index, :update, :show, :destroy, :edit] do
     member do
       get '/watch', to: 'devices#watch', as: :watch
-      get '/approve', to: 'devices#approve', as: :approve
-      get '/reject', to: 'devices#reject', as: :reject
       get '/block', to: 'devices#block', as: :block
     end
   end

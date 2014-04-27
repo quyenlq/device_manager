@@ -15,23 +15,20 @@
 	<% @devices.each do |device| %>
 	<tr>
 		<td><%=device.get_status%></td>
-		<td><%=device.name%></td>
+		<td><%=device.device_name%></td>
 		<td><%=device.device_id%></td>
 		<td><%=device.address%></td>
 		<td><%=device.get_bitrate%></td>
 		<td><div class="btn btn-group">
 			<%= link_to "", device_path(device), class: "btn btn-primary glyphicon glyphicon-cog", title: "Details" %>
-			<%= link_to "", device_path(device), :method => "DELETE", :data => {:confirm => "U sure?"}, class: "btn btn-primary glyphicon glyphicon-trash " , title: "Remove"%>			
 			<%= link_to "", watch_device_path(device), class: "btn btn-primary glyphicon glyphicon-expand " , title: " Watch"%>
 			<%= link_to "", block_device_path(device), class: "btn btn-primary glyphicon glyphicon-ban-circle" , title: "Block"%>
-			<% if device.status == 0 %>
-			<%= link_to "", approve_device_path(device), class: "btn btn-primary glyphicon glyphicon-ok" , title: "Approve" %>
-			<%= link_to "", reject_device_path(device), class: "btn btn-primary glyphicon glyphicon-remove" , title: "Reject" %>
+			<%= link_to "", device_path(device), :method => "DELETE", :data => {:confirm => "U sure?"}, class: "btn btn-primary glyphicon glyphicon-trash " , title: "Remove"%>			
+			
 			<% end %>
 		</div>
 		</td>
 	</tr>			
-	<% end %>
 	</tbody>
 </table>
 

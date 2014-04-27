@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     		flash[:success] = "Signed in successful"
     		redirect_back_or root_path
   		 else
-    		flash.now[:error] = "Authentication failed, wrong username or password"
+    		flash.now[:danger] = "Authentication failed, wrong username or password"
     		render 'new'
   		end
 	end

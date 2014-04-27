@@ -12,14 +12,14 @@
 /* Main container */
 .cbp-vm-switcher {
 	padding: 20px;
-	border: 3px solid #47a3da;
+	border: 3px solid #dd4814;
 }
 
 /* options/select wrapper with switch anchors */
 .cbp-vm-options {
 	text-align: right;
 	padding-bottom: 10px;
-	border-bottom: 3px solid #47a3da;
+	border-bottom: 3px solid #dd4814;
 }
 
 .cbp-vm-options a {
@@ -34,7 +34,7 @@
 
 .cbp-vm-options a:hover,
 .cbp-vm-options a.cbp-vm-selected {
-	color: #47a3da;
+	color: #dd4814;
 }
 
 .cbp-vm-options a:before {
@@ -92,7 +92,7 @@
 
 .cbp-vm-add {
 	color: #fff;
-	background: #47a3da;
+	background: #dd4814;
 	padding: 10px 20px;
 	border-radius: 2px;
 	margin: 20px 0 0;

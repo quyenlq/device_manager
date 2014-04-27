@@ -1,16 +1,71 @@
-<%provide(:title, "Channel #{@device.name} at #{@device.address}:#{@device.port}") %>
-
-<h1 class="page-header">Watching from device <%= @device.name %></h1>
+<%provide(:title, "Channel #{@device.channel_name} at #{@device.address})") %>
+<h1 class="page-header">Watching from device <%= @device.device_name %></h1>
+<input style="display: none" type="text" id="stream" value="rtmp://localhost:1935/live/<%=@device.device_id%>"></input>
 <div class="video-container">
-	<embed type="application/x-vlc-plugin"
-	name="video"
-	autoplay="no" loop="yes" width="720" height="480"
-	target="rtsp://<%= "#{@device.address}:#{@device.port}" %>" />
-	<div class="video-controller"> 
-	<a class="btn btn-primary btn-lg glyphicon glyphicon-play" href="javascript:;" onclick='document.video1.play()'></a>
-
-		<a class="btn btn-primary btn-lg glyphicon glyphicon-pause" href="javascript:;" onclick='document.video1.pause()' title="play/pause"></a>
-		<a class="btn btn-primary btn-lg glyphicon glyphicon-stop" href="javascript:;" onclick='document.video1.stop()' title="stop"></a>
-		<a class="btn btn-primary btn-lg glyphicon glyphicon-fullscreen" href="javascript:;" onclick='document.video1.fullscreen()' title="Full screen"></a>
-	</div>
+    <div id="player" align="center" style="text-align:center; vertical-align:middle"></div>
 </div>
+<div class="status">
+	
+</div>
+
+
+<script type="text/javascript">
+	(function ($) {
+    "use strict";
+
+    var data = [];
+
+    // Outputs some logs about jwplayer
+    function print(t,obj) {
+        for (var a in obj) {
+            if (typeof obj[a] === "object") print(t+'.'+a,obj[a]);
+            else data[t+'.'+a] = obj[a];
+        }
+    }
+
+    $(document).ready(function () {
+
+	     startPlayer($('#stream').val());
+
+        $('#start').click(function () {
+	         startPlayer($('#stream').val());         
+        });
+        $('#stop').click(function () {
+            jwplayer('player').stop();            
+        });
+    });
+
+    // Starts the flash player
+    function startPlayer(stream) {
+
+        jwplayer('player').setup({
+            height: 720,
+            width: 960,
+   	      sources: [{
+                file: stream
+            }],
+            rtmp: {
+                bufferlength: 3
+            },
+            skin: "beelden"
+
+        });
+
+	     jwplayer("player").onMeta( function(event){
+            var info = "";
+            for (var key in data) {
+                info += key + " = " + data[key] + "<BR>";
+            }
+            document.getElementById("status").innerHTML = info;
+
+            print("event",event);
+
+        });
+
+        jwplayer('player').play();
+
+    }
+
+}(jQuery));
+
+</script>

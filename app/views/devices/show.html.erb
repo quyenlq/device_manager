@@ -1,12 +1,12 @@
-<%provide(:title, "@device.name") %>
+<%provide(:title, "@device.device_name") %>
 <h1 class="page-header">Device details</h1>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
 	<%= form_for @device do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 
-	<%= f.label :name %><br />
-	<%= f.text_field :name %>
+	<%= f.label :device_name %><br />
+	<%= f.text_field :device_name %>
 
 	<%= f.label :device_id %><br />
 	<%= f.text_field :device_id%>

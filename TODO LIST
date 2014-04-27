@@ -9,7 +9,6 @@ Device
 	+ disbale buttons in admin control panel // DONE
 	- paginate
 User
-	- admin appointment //??
 	- redirect_back
 
 UI/UX: need to improve, responsive design	
@@ -21,7 +20,36 @@ BUILD THE API
 	+ change identity attibute from email to username (user) //done
 	+ login	// DONE
 	+ logout //DONE
-	- update menu left when logged in // slot problem
+	+ update menu left when logged in // DONE
 	- bitrate problem
-	- create user api - edit user // checkbox to change password
-	+ refactor code - api controller and non-api controller // DONE?
+	+ create user api - edit user // DONE
+	+ refactor code - api controller and non-api controller // DONE
+
+RUSH HOUR
+	- finish web page: on off icon, on off detection, register device, UI UX, play screen, 
+	- authentication system wowza
+	- improve app UI/UX
+	- test device API on application
+
+
+ATTR: device_id, device name, channel name, bitrate, ip address
+1 device - 1 channel
+only display online channel
+IP address get from wowza
+device_id, device name get from params send from device
+channel name
+
+- after logged in the device, register this device to the user unless it has been already registered
+ => 1 user - n devices; 1 device - 1 channel
+ => name the channel by device_id (backend)
+ => user able to name the channel(display front end)
+
+
+ Device : 
+ - device_id : also the backend channel name, send from wowza via query string
+ - device_name : device name, send from device to wowza via query string
+ - ip_address: from the ip send to wowza (properly WAN IP), get from client parametter inside wowza module
+ - channel_name: named by user, send to wowza via query string
+ - bitrate: consider latter ------
+
+ u=15&t=22&did=13&dn=20&cn=15

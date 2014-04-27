@@ -3,12 +3,10 @@ module Api::V1
 		before_filter :mobile_signed_in, only: [:update]
 
 		def create
-			binding.pry
 			@user = User.new(user_params)
 			if @user.save
 				render text: @user.to_json, status: 200
 			else
-				binding.pry
 				render text: @user.errors.to_json, status: 400
 			end
 		end

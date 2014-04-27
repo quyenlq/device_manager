@@ -23,20 +23,6 @@ class DevicesController < ApplicationController
 		@device = Device.find(params[:id])
 	end
 
-	def approve
-		@device = Device.find(params[:id])
-		@device.approve!
-		flash[:success] = "Device approved"
-		redirect_to devices_path
-	end
-
-	def reject
-		@device = Device.find(params[:id])
-		@device.delete
-		flash[:success] = "Device rejected"
-		redirect_to devices_path
-	end
-
 	def update
 		@device = Device.find(params[:id])
 		if @device.update_attributes(device_params)

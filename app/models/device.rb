@@ -1,29 +1,29 @@
 class Device < ActiveRecord::Base
-	# ADDRESS: IP address
-	# PORT: PORT 
-	# DEVICE_ID: Unique id, generate from app
-	# BITRATE: Bitrate of the stream
-	# STATUS: 0-inactive, 1-online, 2-offline, 3-busy
-	validates :port, presence: true, numericality: true
+	 # Device : 
+	 # - device_id : also the backend channel name, send from wowza via query string
+	 # - device_name : device name, send from device to wowza via query string
+	 # - ip_address: from the ip send to wowza (properly WAN IP), get from client parametter inside wowza module
+	 # - channel_name: named by user, send to wowza via query string
+	 # - bitrate: consider latter ------
+	belongs_to :user
+
 	VALID_IPV4_REGEX = /\A(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$\z/
-	validates :address, presence:   true,
+ 	validates :address, presence:   true,
 	format:     { with: VALID_IPV4_REGEX }
 	validates :device_id, presence: true, uniqueness: true
 	validates :bitrate, presence: true
+	validates :channel_name, presence: true
+	validates :device_name, presence: true
 	validate :blocked_device
+	
+	before_save :rename_device_name
 
 	def get_status
 		case status
 		when 0 
-			return "Inactive"
+			return "<img src='/assets/device_online.gif' alt='Online' />".html_safe
 		when 1 
-			return "Online"
-		when 2 
-			return "Offline"
-		when 3 
-			return "Busy"
-		else
-			return "Activated"
+			return "<img src='/assets/device_offline.gif' alt='Offline' />".html_safe
 		end
 	end
 
@@ -31,8 +31,8 @@ class Device < ActiveRecord::Base
 		return "#{bitrate} kbps"
 	end
 
-	def approve!
-		update_attribute("status", 2)
+	def rename_device_name
+		self.device_name.gsub!('_', " ")
 	end
 
 	private

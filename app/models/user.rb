@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :devices
+
   before_save { |user| user.username = username.downcase }
   before_save :create_remember_token
   before_save :make_admin

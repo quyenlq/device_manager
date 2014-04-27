@@ -4,6 +4,8 @@
   <title>bkStreaming Portal | <%= yield(:title) %> </title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="/assets/jwplayer.js"></script>
+  <script type="text/javascript">jwplayer.key="HbRdWtDb4Tko7u6k1iVOo+UZVGEJp9j6LJTmxeD2gn0gcC/xhG2YyakEDkoJeZdd";</script>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %> 
   <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>

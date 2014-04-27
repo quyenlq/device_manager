@@ -1,12 +1,13 @@
 <li class="item">
 	<div>
-		<h4 class="cbp-vm-title"><%= device.name %></h4>
+		<h4 class="cbp-vm-title"><%= device.device_name %></h4>
+		<h4 class="cbp-vm-title"><small>[<%=device.user.username%>]</small></h4>
 		<div class="divider"></div>
 		<div style="background-image:url('http://cdn.tgdd.vn/Products/Images/42/61196/SliderAlbum/699/samsung-galaxy-note-3-neo-black-03.jpg')" alt="Texto Alternativo" class="device-image cbp-vm-image"></div>
 
 		
 		<p class="cbp-vm-price"><%= device.address %></p>
-		<p class="cbp-vm-price">Status: <%= device.get_status %></p>
+		<p class="cbp-vm-price"><%= device.get_status %></p>
 <!-- 		<p class="cbp-vm-icon cbp-vm-details">Bit rate: <%= device.get_bitrate %></p> -->
 			<a href="<%=watch_device_path(device) %>" class="btn btn-danger cbp-vm-add" title="Watch">WATCH NOW »</a>
 	</div>

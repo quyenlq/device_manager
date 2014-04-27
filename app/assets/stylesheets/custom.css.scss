@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "ubuntu";
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -34,7 +35,7 @@
 #custom-field{
   margin-top: 10px;
   font-weight: bold;
-  color: #08c;
+  color: #dd4814;
   font-size: 110%;
   input{
     padding: 5px;
@@ -53,8 +54,8 @@ input, textarea, select, .uneditable-input {
 /* BODY */
 
 body{
-  margin-top: 80px;
-  background-color: #F5FCFF;
+  margin-top: 80px !important;
+  background-color: white;
 }
 
 nav{
@@ -66,7 +67,7 @@ nav{
   margin-right: 10px;
   font-size: 1.7em;
   font-family: 'Audiowide', cursive;
-  color: #08c;
+  color: #fff;
   // text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
@@ -74,7 +75,7 @@ nav{
 }
 
 #logo:hover {
-  color: #999;
+  color: #eee;
   text-decoration: none;
 }
 
@@ -133,5 +134,11 @@ footer ul li {
 
 .video-container{
   text-align: center;
+  #player_wrapper{
+    margin: 0 auto;
+  }
 }
 
+.slider{
+  text-align: center;
+}
