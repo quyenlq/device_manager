@@ -1,7 +1,41 @@
-<div class="slider">
-	<div class="jumbotron"><h1>WELCOME TO BKSTREAMING</h1>
-		<p>Please click the button below to sign-up, or sign in <a href="<%= signin_path %>">here</a>
-		</p>
-		<a href="<%= signup_path %>" class="btn btn-danger btn-lg %>"> Sign Up</a>
+<div class="row">
+	<div class="col-md-8 left-header ">
+		<h1>WELCOME TO <a href="">BKSTREAMING </a></h1>
+			<p>Already registered? Click <a href="<%= signin_path %>"><b>here</b></a>
+			</p>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Please sign up to use our service <small>It's free!</small></h3>
+			</div>
+			<div class="panel-body">
+				<form role="form">
+					<div class="form-group">
+						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Full Name">
+					</div>
+
+					<div class="form-group">
+						<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<div class="form-group">
+								<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<div class="form-group">
+								<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+							</div>
+						</div>
+					</div>
+
+					<input type="submit" value="Register" class="btn btn-info btn-block">
+
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
