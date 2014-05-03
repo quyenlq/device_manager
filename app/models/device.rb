@@ -21,10 +21,13 @@ class Device < ActiveRecord::Base
 	def get_status
 		case status
 		when 0 
-			return "<img src='/assets/device_online.gif' alt='Online' />".html_safe
+			return "<span class='label label-success'>Online</span>".html_safe
 		when 1 
-			return "<img src='/assets/device_offline.gif' alt='Offline' />".html_safe
+			return "<span class='label label-danger'>Offline</span>".html_safe
 		end
+	end
+	def is_online?
+		return self.status==0
 	end
 
 	def get_bitrate

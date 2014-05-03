@@ -1,15 +1,25 @@
 <li class="item">
 	<div>
-		<h4 class="cbp-vm-title"><%= device.device_name %></h4>
-		<h4 class="cbp-vm-title"><small>[<%=device.user.username%>]</small></h4>
+		<h2 class="cbp-vm-device-name"><%= device.device_name %></h2>
+		<h4 class="cbp-vm-device-address"><small>
+			<%= device.address %></small></h4>
+		<h4 class="cbp-vm-device-address"><small>[<%=device.user.username%>]</small></h4>
+		
 		<div class="divider"></div>
+		<%if device.is_online? %>
 		<div style="background-image:url('http://cdn.tgdd.vn/Products/Images/42/61196/SliderAlbum/699/samsung-galaxy-note-3-neo-black-03.jpg')" alt="Texto Alternativo" class="device-image cbp-vm-image"></div>
+		<% else %> 
+		<div style="background-image:url('http://cdn.tgdd.vn/Products/Images/42/61196/SliderAlbum/699/samsung-galaxy-note-3-neo-black-03.jpg')" alt="Texto Alternativo" class="device-image cbp-vm-image grayed"></div>
+		<% end %>		
 
 		
-		<p class="cbp-vm-price"><%= device.address %></p>
-		<p class="cbp-vm-price"><%= device.get_status %></p>
-<!-- 		<p class="cbp-vm-icon cbp-vm-details">Bit rate: <%= device.get_bitrate %></p> -->
-			<a href="<%=watch_device_path(device) %>" class="btn btn-danger cbp-vm-add" title="Watch">WATCH NOW »</a>
+		<p class="cbp-vm-device-channel-name"><%= device.channel_name %></p>
+		<p class="cbp-vm-device-channel-name"><%= device.get_status %></p>
+		<%if device.is_online? %> 
+		<a href="<%=watch_device_path(device) %>" class="btn btn-danger cbp-vm-add" title="Watch">WATCH NOW »</a>
+		<% else %>
+		<a href="<%=watch_device_path(device) %>" class="btn btn-danger cbp-vm-add disabled" title="Watch">WATCH NOW »</a>
+		<% end %>
 	</div>
 
 </li>

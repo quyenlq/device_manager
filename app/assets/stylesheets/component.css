@@ -86,7 +86,7 @@
 	padding: 0;
 }
 
-.cbp-vm-price {
+.cbp-vm-device-channel-name {
 	color: #666;
 }
 
@@ -156,18 +156,17 @@
 	vertical-align: top;
 }
 
-.cbp-vm-view-grid .cbp-vm-title {
+.cbp-vm-view-grid .cbp-vm-device-name {
 	font-size: 1.5em;
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
-.cbp-vm-view-grid .cbp-vm-details {
-	max-width: 300px;
-	min-height: 70px;
+.cbp-vm-view-grid .cbp-vm-device-address {
+	font-size: 1.em;
 	margin: 0 auto;
 } 
 
-.cbp-vm-view-grid .cbp-vm-price {
+.cbp-vm-view-grid .cbp-vm-device-channel-name {
 	margin: 10px 0;
 	font-size: 1.5em;
 }
@@ -180,9 +179,9 @@
 }
 
 .cbp-vm-view-list .cbp-vm-image,
-.cbp-vm-view-list .cbp-vm-title,
-.cbp-vm-view-list .cbp-vm-details,
-.cbp-vm-view-list .cbp-vm-price,
+.cbp-vm-view-list .cbp-vm-device-name,
+.cbp-vm-view-list .cbp-vm-device-address,
+.cbp-vm-view-list .cbp-vm-device-channel-name,
 .cbp-vm-view-list .cbp-vm-add {
 	display: inline-block;
 	vertical-align: middle;
@@ -202,19 +201,19 @@
 	margin-left: 10px;
 }
 
-.cbp-vm-view-list .cbp-vm-title {
+.cbp-vm-view-list .cbp-vm-device-name {
 	font-size: 1.3em;
 	padding: 0 10px;
 	white-space: normal;
 	width: 23%;
 }
 
-.cbp-vm-view-list .cbp-vm-price {
+.cbp-vm-view-list .cbp-vm-device-channel-name {
 	font-size: 1.3em;
 	width: 20%;
 }
 
-.cbp-vm-view-list .cbp-vm-details {
+.cbp-vm-view-list .cbp-vm-device-address {
 	width: 40%;
 	padding: 0 15px;
 	overflow: hidden;
@@ -227,7 +226,7 @@
 }
 
 @media screen and (max-width: 66.7em) {
-	.cbp-vm-view-list .cbp-vm-details  {
+	.cbp-vm-view-list .cbp-vm-device-address  {
 		width: 30%;
 	}
 } 
@@ -247,7 +246,7 @@
 		width: auto;
 	}
 
-	.cbp-vm-view-list .cbp-vm-details  {
+	.cbp-vm-view-list .cbp-vm-device-address  {
 		display: block;
 		width: 100%;
 		margin: 10px 0;

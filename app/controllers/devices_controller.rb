@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
 	before_filter :signed_in_user
-	before_filter :admin_user, only: [:show, :index, :edit, :update, :block, :destroy, :approve, :reject]
+	before_filter :admin_user, only: [:block]
 
 
 	# Normal action for user & device client
@@ -16,7 +16,11 @@ class DevicesController < ApplicationController
 	end
 
 	def index
-		@devices = Device.all
+		if admin?
+			@devices = Device.all
+		else
+			@devices = current_user.devices.all 
+		end
 	end
 
 	def edit
@@ -68,11 +72,11 @@ class DevicesController < ApplicationController
 	end
 
 	def signed_in_user
-		redirect_to signin_url, notice: "Please sign in." unless signed_in?
+		redirect_to signin_url, warning: "Please sign in." unless signed_in?
 	end
 
 	def admin_user
-		redirect_to root_path, notice: "You are not allowed to access this page" unless admin?
+		redirect_to root_path, warning: "You are not allowed to access this page" unless admin?
 	end
 
 	def valid_params(params)
