@@ -8,6 +8,9 @@
 	<%= f.label :device_name %><br />
 	<%= f.text_field :device_name %>
 
+	<%= f.label :channel_name %><br />
+	<%= f.text_field :channel_name %>
+
 	<%= f.label :device_id %><br />
 	<%= f.text_field :device_id%>
 
@@ -17,7 +20,7 @@
 
 	<%= f.label :bitrate %><br />
 	<%= f.text_field :bitrate %>
-
+	<hr>
 	<%= f.submit "Update", :disable_with => 'Updating...' ,class: "btn btn-danger"%>
 
 	<% end %>
