@@ -63,12 +63,12 @@ class DevicesController < ApplicationController
 	private
 
 	def device_params
-		params.require(:device).permit(:name, :address, :device_id, :port, :bitrate)
+		params.require(:device).permit(:name, :address, :device_id, :channel_name, :bitrate)
 	end
 
 	def get_device_params(raw, register_flag)
-		return raw.permit(:name, :address, :device_id, :port, :bitrate) if register_flag
-		return raw.permit(:name, :address, :port, :bitrate)
+		return raw.permit(:name, :address, :device_id, :channel_name, :bitrate) if register_flag
+		return raw.permit(:name, :address, :channel_name, :bitrate)
 	end
 
 	def signed_in_user
@@ -80,11 +80,11 @@ class DevicesController < ApplicationController
 	end
 
 	def valid_params(params)
-		return  params.include?(:name) && params.include?(:address) && params.include?(:port) && params.include?(:bitrate) && params.include?(:device_id)
+		return  params.include?(:name) && params.include?(:address) && params.include?(:channel_name) && params.include?(:bitrate) && params.include?(:device_id)
 	end
 
 	def valid_optional_params(params)
-		return  params.include?(:name) || params.include?(:address) || params.include?(:port) || params.include?(:bitrate) || params.include?(:device_id)
+		return  params.include?(:name) || params.include?(:address) || params.include?(:channel_name) || params.include?(:bitrate) || params.include?(:device_id)
 	end
 	
 end
